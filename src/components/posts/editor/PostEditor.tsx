@@ -114,7 +114,7 @@ export default function PostEditor() {
           disabled={!input.trim() || isUploading}
           className="min-w-20"
         >
-          Post
+          Postar
         </LoadingButton>
       </div>
     </div>

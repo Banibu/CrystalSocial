@@ -47,10 +47,10 @@ export default function CropImageDialog({
           className="mx-auto size-fit"
         />
         <DialogFooter>
-          <Button variant="secondary" onClick={onClose}>
+          <Button variant="default" onClick={onClose}>
             Cancelar
           </Button>
-          <Button onClick={crop}>Cortar</Button>
+          <Button onClick={crop} variant="secondary">Cortar</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
