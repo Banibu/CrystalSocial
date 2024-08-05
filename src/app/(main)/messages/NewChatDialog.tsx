@@ -96,8 +96,8 @@ export default function NewChatDialog({
           <div className="group relative">
             <SearchIcon className="absolute left-5 top-1/2 size-5 -translate-y-1/2 transform text-muted-foreground group-focus-within:text-primary" />
             <input
-              placeholder="Search users..."
-              className="h-12 w-full pe-4 ps-14 focus:outline-none"
+              placeholder="Procurar usuários..."
+              className="h-12 w-full pe-4 ps-14 bg-secondary text-secondary-foreground focus:outline-none"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
             />
