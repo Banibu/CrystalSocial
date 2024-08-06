@@ -33,7 +33,7 @@ export async function GET(
     });
 
     if (!post) {
-      return Response.json({ error: "Post not found" }, { status: 404 });
+      return Response.json({ error: "Postagem não encontrada" }, { status: 404 });
     }
 
     const data: LikeInfo = {
@@ -44,7 +44,7 @@ export async function GET(
     return Response.json(data);
   } catch (error) {
     console.error(error);
-    return Response.json({ error: "Internal server error" }, { status: 500 });
+    return Response.json({ error: "Erro do Servidor Interno" }, { status: 500 });
   }
 }
 
@@ -67,7 +67,7 @@ export async function POST(
     });
 
     if (!post) {
-      return Response.json({ error: "Post not found" }, { status: 404 });
+      return Response.json({ error: "Postagem não encontrada" }, { status: 404 });
     }
 
     await prisma.$transaction([
@@ -101,7 +101,7 @@ export async function POST(
     return new Response();
   } catch (error) {
     console.error(error);
-    return Response.json({ error: "Internal server error" }, { status: 500 });
+    return Response.json({ error: "Erro do Servidor Interno" }, { status: 500 });
   }
 }
 
@@ -124,7 +124,7 @@ export async function DELETE(
     });
 
     if (!post) {
-      return Response.json({ error: "Post not found" }, { status: 404 });
+      return Response.json({ error: "Postagem não encontrada" }, { status: 404 });
     }
 
     await prisma.$transaction([
@@ -147,6 +147,6 @@ export async function DELETE(
     return new Response();
   } catch (error) {
     console.error(error);
-    return Response.json({ error: "Internal server error" }, { status: 500 });
+    return Response.json({ error: "Erro do Servidor Interno" }, { status: 500 });
   }
 }

@@ -7,7 +7,7 @@ export async function GET(req: Request) {
 
     if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
       return Response.json(
-        { message: "Invalid authorization header" },
+        { message: "Cabeçalho de autorização inválido" },
         { status: 401 },
       );
     }
@@ -47,6 +47,6 @@ export async function GET(req: Request) {
     return new Response();
   } catch (error) {
     console.error(error);
-    return Response.json({ error: "Internal server error" }, { status: 500 });
+    return Response.json({ error: "Erro do Servidor Interno" }, { status: 500 });
   }
 }
