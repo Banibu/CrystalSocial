@@ -1,6 +1,8 @@
+# Multi-stage build para otimizar o tamanho da imagem Docker
+# Stage 1: Base
 FROM node:22-alpine AS base
 
-# Install dependencies only when needed
+# Stage 2: Instalar dependências
 FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
@@ -9,7 +11,7 @@ WORKDIR /app
 COPY package.json package-lock.json* ./
 RUN npm ci --legacy-peer-deps
 
-# Rebuild the source code only when needed
+# Stage 3: Build da aplicação Next.js
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
@@ -30,7 +32,7 @@ RUN POSTGRES_PRISMA_URL="postgresql://postgres:password@localhost:5432/db" \
     NEXT_PUBLIC_BASE_URL="http://localhost:3000" \
     npm run build
 
-# Production image, copy all the files and run next
+# Stage 4: Imagem final de produção (otimizada)
 FROM base AS runner
 WORKDIR /app
 
